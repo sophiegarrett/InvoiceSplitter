@@ -1,5 +1,5 @@
 # Invoice Splitter
-# Sophie Garrett 2019
+# Copyright (C) 2019 Sophie Garrett
 
 # This program takes an invoice file and renames it as its invoice number.
 
