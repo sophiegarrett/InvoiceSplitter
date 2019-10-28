@@ -38,18 +38,22 @@ def splitInvoice(reader, pageNum):
     # Search the text for an invoice number
     invoiceNumber = getInvoiceNumber(pageText)
 
-    # Check that an invoice number was found; if false, terminate the function
+    # Check that an invoice number was found; if false, add an error flag
     if not invoiceNumber:
-        return
+        invoiceNumber = 'error' + pageNum
 
     # Search the text for a page number
     pageNumber = getPageNumber(pageText)
+
+    # Check that a page number was found; if false, add an error flag
+    if not pageNumber:
+        pageNumber = 'noPg'
 
     # Add file extension to invoice number
     if pageNumber == '1':
         newFileName = invoiceNumber + '.pdf'
     else:
-        newFileName = invoiceNumber + ' pg' + pageNumber + '.pdf'
+        newFileName = invoiceNumber + ' (' + pageNumber + ').pdf'
 
     # Create a new PDF writer and add the page to it
     pdfWriter = PyPDF2.PdfFileWriter()
