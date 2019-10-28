@@ -40,7 +40,7 @@ def splitInvoice(reader, pageNum):
 
     # Check that an invoice number was found; if false, add an error flag
     if not invoiceNumber:
-        invoiceNumber = 'error' + pageNum
+        invoiceNumber = 'error' + str(pageNum)
 
     # Search the text for a page number
     pageNumber = getPageNumber(pageText)
